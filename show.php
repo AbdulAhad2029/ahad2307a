@@ -1,8 +1,11 @@
 <?php
 
+// include ("connection.php");
+// require_once "connection.php";
+
+include 'connection.php';
 
 
-$con = mysqli_connect("localhost","root","","2307adb") ;
 
  $q = "SELECT * FROM student";
 
@@ -48,9 +51,10 @@ $con = mysqli_connect("localhost","root","","2307adb") ;
             <!-- place navbar here -->
         </header>
         <main>
-
-        <table class="table">
-  <thead>
+<div class="container">
+    <a href="student.php" class="btn btn-success">add student</a>
+    <table class="table">
+        <thead>
     <tr>
       <th scope="col">id</th>
       <th scope="col">Student Name</th>
@@ -61,6 +65,7 @@ $con = mysqli_connect("localhost","root","","2307adb") ;
     </tr>
   </thead>
   <tbody>
+    <!-- $result= mysqli_query($con,$q) -->
     <?php 
     while ($data = mysqli_fetch_array($result))
     {
@@ -73,23 +78,23 @@ $con = mysqli_connect("localhost","root","","2307adb") ;
       <td><?php echo $data['email']?></td>
       <td><?php echo $data['phone']?></td>
       <td><img src="<?php echo $data['image']?>" width="50px" height="50px" alt=""></td>
-
-
       
+           
       <td><a href="delete.php?student_id=<?php echo $data['id']?>" class="btn btn-danger">Delete</a></td>
-
-
-
-
-      <td><a href="update.php?student_id=<?php echo $data['id']?>" class="btn btn-primary">Edit</a></td>
+      
+      
+      
+      
+      <td><a href="update1.php?student_id=<?php echo $data['id']?>" class="btn btn-primary">Edit</a></td>
     </tr>
-  
-        <?php
+    
+    <?php
     }
-        ?>
+    ?>
 
-  </tbody>
+</tbody>
 </table>
+</div>
 
 
         </main>

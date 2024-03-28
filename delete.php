@@ -1,5 +1,5 @@
 <?php
-
+// die;
 $con = mysqli_connect("localhost","root","","2307adb");
 
 
@@ -9,7 +9,7 @@ if(isset($_GET['student_id'])){
 
     $q= "DELETE FROM student WHERE id = '".$st_id."' ";
 
-    // echo $q;
+    // echo $q;die;
     $res = mysqli_query($con ,$q);
     if($res){
         header("Location: show.php");
